@@ -1,13 +1,11 @@
 FROM node:14-slim
 
-WORKDIR /app
+WORKDIR /ihood/ihood-backend
 
-COPY package*.json ./
+COPY package*.json .
 
 RUN npm install
 
-COPY . .
+COPY . .    
 
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
