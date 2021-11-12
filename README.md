@@ -1,5 +1,5 @@
-# ihood-backend
-Neighborhood-community backend
+# ihood-backend endpoints
+iHood-backend
 
 // iHood Endpoints ->
 
