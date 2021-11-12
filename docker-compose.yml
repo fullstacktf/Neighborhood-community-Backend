@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  
+  db:
+    environment:
+      - MARIADB_ROOT_PASSWORD='amor123'
+    image: mariadb:10.5
+    ports:
+      - "3307:3307"
+    restart: always
+    volumes:
+      - "./mysql_data:/var/lib/mysql"
+      - "./init:/docker-entrypoint-initdb.d"
