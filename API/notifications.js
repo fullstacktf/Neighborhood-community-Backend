@@ -7,22 +7,22 @@ const app = express();
 app.use(express.json());
 
 
-// NEIGHBOOR ENDPOINT
+// notifications ENDPOINT
 
 
 let id = 0 
 
-let neighboor = [{name: "El Piedra de Añaza", id: 1}]
+let notification = [{name: "El Piedra de Añaza", id: 1}]
 
 id++
 
-app.get("/communities/:id/neighboor", (req, res) => {
-  const sql = "SELECT * FROM neighboor";
+app.get("/users/:id/notifications", (req, res) => {
+  const sql = "SELECT * FROM notifications";
 
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
-      res.json(`This are the neighboor of iHood: ${neighboor}`);
+      res.json(`This are the notifications of iHood: ${notification}`);
     } else {
       res.send("Not result");
     }
@@ -30,11 +30,11 @@ app.get("/communities/:id/neighboor", (req, res) => {
 });
 
 
-app.post("/communities/:id/neighboor", (req, res) => {
+app.post("/users/:id/notifications", (req, res) => {
   
-  const neighboorName = {name: req.body.name };
+  const notificationName = {name: req.body.name };
 
-  const sql = `INSERT INTO neighboor SET name = '${neighboorName}', id = '${id}'`;
+  const sql = `INSERT INTO notifications SET name = '${notificationName}', id = '${id}'`;
 
   connection.query(sql, userName, error => {
     if (error) throw error;
@@ -43,10 +43,10 @@ app.post("/communities/:id/neighboor", (req, res) => {
 });
 
 
-app.put("/communities/:id/neighboor/:id", (req, res) => {
+app.put("/users/:id/notifications/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const sql = `UPDATE neighboor SET name = '${name}' WHERE id = ${id}`;
+  const sql = `UPDATE notifications SET name = '${name}' WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
@@ -55,9 +55,9 @@ app.put("/communities/:id/neighboor/:id", (req, res) => {
 });
 
 
-app.delete("/communities/:id/neighboor/:id", (req, res) => {
+app.delete("/users/:id/notifications/:id", (req, res) => {
   const { id } = req.params;
-  const sql = `DELETE FROM neighboor WHERE id = ${id}`;
+  const sql = `DELETE FROM notifications WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
