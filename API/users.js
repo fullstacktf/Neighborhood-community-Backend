@@ -6,24 +6,24 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(express.json());
 
-// Community CRUD
+// user CRUD
 
 let id = 0
 
-let community = [{name: "Los Alisios", id: 1}]
+let user = [{name: "El Piedra de Añaza", id: 1}]
 
 id++ // We will change into AUTOINCREMENT at Database
 
 
 //GET
 
-app.get("/communities", (req, res) => {
-  const sql = "SELECT * FROM communities";
+app.get("/users", (req, res) => {
+  const sql = "SELECT * FROM users";
 
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
-      res.json(`This are the Communities of iHood: ${community}`);
+      res.json(`This are the users of iHood: ${user}`);
     } else {
       res.send("Not result");
     }
@@ -33,15 +33,15 @@ app.get("/communities", (req, res) => {
 
 //POST
 
-app.post("/communities", (req, res) => {
+app.post("/users", (req, res) => {
   
-  const communityName = {name: req.body.name };
+  const userName = {name: req.body.name };
 
-  const sql = `INSERT INTO community SET name = '${communityName}', id = '${id}'`;
+  const sql = `INSERT INTO user SET name = '${userName}', id = '${id}'`;
 
-  connection.query(sql, communityName, error => {
+  connection.query(sql, userName, error => {
     if (error) throw error;
-    res.send("Community created!");
+    res.send("user created!");
   });
 });
 
@@ -49,10 +49,10 @@ app.post("/communities", (req, res) => {
 //PUT
 
 
-app.put("/communities/:id", (req, res) => {
+app.put("/users/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const sql = `UPDATE communities SET name = '${name}' WHERE id = ${id}`;
+  const sql = `UPDATE users SET name = '${name}' WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
@@ -64,13 +64,13 @@ app.put("/communities/:id", (req, res) => {
 //DELETE
 
 
-app.delete("/communities/:id", (req, res) => {
+app.delete("/users/:id", (req, res) => {
   const { id } = req.params;
-  const sql = `DELETE FROM communities WHERE id = ${id}`;
+  const sql = `DELETE FROM users WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
-    res.send("Community deleted!");
+    res.send("user deleted!");
   });
 });
 
@@ -82,6 +82,3 @@ connection.connect(error => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-=======
-
-

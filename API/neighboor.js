@@ -16,7 +16,9 @@ let neighboor = [{name: "El Piedra de Añaza", id: 1}]
 
 id++
 
-app.get("/communities/neighboor", (req, res) => {
+//GET
+
+app.get("/users/:id/neighboor/:id", (req, res) => {
   const sql = "SELECT * FROM neighboor";
 
   connection.query(sql, (error, results) => {
@@ -29,8 +31,9 @@ app.get("/communities/neighboor", (req, res) => {
   });
 });
 
+//POST
 
-app.post("/communities/neighboor", (req, res) => {
+app.post("/users/:id/neighboor", (req, res) => {
   
   const neighboorName = {name: req.body.name };
 
@@ -42,8 +45,9 @@ app.post("/communities/neighboor", (req, res) => {
   });
 });
 
+//PUT
 
-app.put("/communities/neighboor/:id", (req, res) => {
+app.put("/users/:id/neighboor/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   const sql = `UPDATE neighboor SET name = '${name}' WHERE id = ${id}`;
@@ -54,8 +58,9 @@ app.put("/communities/neighboor/:id", (req, res) => {
   });
 });
 
+//DELETE
 
-app.delete("/communities/neighboor/:id", (req, res) => {
+app.delete("/users/:id/neighboor/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM neighboor WHERE id = ${id}`;
 
