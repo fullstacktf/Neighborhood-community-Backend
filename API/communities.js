@@ -14,6 +14,9 @@ let community = [{name: "Los Alisios", id: 1}]
 
 id++ // We will change into AUTOINCREMENT at Database
 
+
+//GET
+
 app.get("/communities", (req, res) => {
   const sql = "SELECT * FROM communities";
 
@@ -28,6 +31,8 @@ app.get("/communities", (req, res) => {
 });
 
 
+//POST
+
 app.post("/communities", (req, res) => {
   
   const communityName = {name: req.body.name };
@@ -39,6 +44,9 @@ app.post("/communities", (req, res) => {
     res.send("Community created!");
   });
 });
+
+
+//PUT
 
 
 app.put("/communities/:id", (req, res) => {
@@ -53,6 +61,9 @@ app.put("/communities/:id", (req, res) => {
 });
 
 
+//DELETE
+
+
 app.delete("/communities/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM communities WHERE id = ${id}`;
@@ -62,5 +73,15 @@ app.delete("/communities/:id", (req, res) => {
     res.send("Community deleted!");
   });
 });
+
+
+// Database server check
+connection.connect(error => {
+  if (error) throw error;
+  console.log("Database server running!");
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+=======
 
 
