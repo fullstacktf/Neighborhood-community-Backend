@@ -1,7 +1,5 @@
 # ihood-backend endpoints
-iHood-backend
-
-// iHood Endpoints ->
+iHood Backend Endpoints ->
 
 // Neighboor endpoint
 
