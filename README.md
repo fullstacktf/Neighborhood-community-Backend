@@ -5,49 +5,49 @@ iHood-backend
 
 // Neighboor endpoint
 
-app.get('/communities/:id/neighboor/:id'); 
-app.post('/communities/:id/neighboor/'); 
-app.delete('/communities/:id/neighboor/:id'); 
-app.put('/communities/:id/neighboor/:id'); 
+app.get('/communities/:id/neighboor/:id');<br>
+app.post('/communities/:id/neighboor/'); <br>
+app.delete('/communities/:id/neighboor/:id'); <br>
+app.put('/communities/:id/neighboor/:id'); <br>
 
 // President endpoint
 
-app.get('/communities/:id/president/:id'); 
-app.post('/communities/:id/president/'); 
-app.delete('/communities/:id/president/:id'); 
-app.put('/communities/:id/president/:id'); 
+app.get('/communities/:id/president/:id'); <br>
+app.post('/communities/:id/president/'); <br>
+app.delete('/communities/:id/president/:id'); <br>
+app.put('/communities/:id/president/:id'); <br>
 
 // Notifications endpoint
 
-app.get('/communities/:id/notifications/:id'); 
-app.post('/communities/:id/notifications/'); 
-app.delete('/communities/:id/notifications/:id'); 
-app.put('/communities/:id/notifications/:id'); 
+app.get('/communities/:id/notifications/:id'); <br>
+app.post('/communities/:id/notifications/'); <br>
+app.delete('/communities/:id/notifications/:id'); <br>
+app.put('/communities/:id/notifications/:id'); <br>
 
 // Payments endpoint
 
-app.get('/communities/:id/payments/:id'); 
-app.post('/communities/:id/payments/'); 
-app.delete('/communities/:id/payments/:id'); 
-app.put('/communities/:id/payments/:id'); 
+app.get('/communities/:id/payments/:id'); <br>
+app.post('/communities/:id/payments/'); <br>
+app.delete('/communities/:id/payments/:id'); <br>
+app.put('/communities/:id/payments/:id'); <br>
 
 // Incidents endpoint
 
-app.get('/communities/:id/incidents/:id'); 
-app.post('/communities/:id/incidents/'); 
-app.delete('/communities/:id/incidents/:id'); 
-app.put('/communities/:id/incidents/:id'); 
+app.get('/communities/:id/incidents/:id'); <br>
+app.post('/communities/:id/incidents/'); <br>
+app.delete('/communities/:id/incidents/:id'); <br>
+app.put('/communities/:id/incidents/:id'); <br>
 
 // Events endpoint
 
-app.get('/communities/:id/events/:id'); 
-app.post('/communities/:id/events/'); 
-app.delete('/communities/:id/events/:id'); 
-app.put('/communities/:id/events/:id'); 
+app.get('/communities/:id/events/:id'); <br>
+app.post('/communities/:id/events/'); <br>
+app.delete('/communities/:id/events/:id'); <br>
+app.put('/communities/:id/events/:id'); <br>
 
 // Apartment endpoint
 
-app.get('/communities/:id/apartment/:id'); 
-app.post('/communities/:id/apartment/'); 
-app.delete('/communities/:id/apartment/:id'); 
-app.put('/communities/:id/apartment/:id');
+app.get('/communities/:id/apartment/:id'); <br>
+app.post('/communities/:id/apartment/'); <br>
+app.delete('/communities/:id/apartment/:id'); <br>
+app.put('/communities/:id/apartment/:id');<br>
