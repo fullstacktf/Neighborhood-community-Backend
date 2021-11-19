@@ -1,5 +1,5 @@
 const express = require("express");
-const mysql = require("mysql");
+/* const mysql = require("mysql"); */
 
 const PORT = process.env.PORT || 8080;
 
@@ -20,10 +20,10 @@ app.get("/", (req, res) => {
 });
 
 // all users
-  app.get("/users", (req, res) => {
+app.get("/users", (req, res) => {
   const sql = "SELECT * FROM users";
 
-  connection.query(sql, (error, results) => {
+  /* connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
       res.json(results);
@@ -45,7 +45,7 @@ app.get("/users/:id", (req, res) => {
       res.send("Not result");
     }
   });
-});
+}); */
 
 app.post("/add", (req, res) => {
   const sql = "INSERT INTO users SET ?";

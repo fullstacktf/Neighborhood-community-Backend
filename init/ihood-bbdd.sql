@@ -11,12 +11,6 @@ CREATE TABLE user (
     PRIMARY KEY (userID)
 );
 
-CREATE TABLE u_role (
-  roleID int NOT NULL,
-  role_type varchar(255) NOT NULL,
-    PRIMARY KEY (rolID),
-    FOREIGN KEY (userID) REFERENCES user(userID),
-);
 
 CREATE TABLE community (
   communityID int NOT NULL AUTO_INCREMENT,
