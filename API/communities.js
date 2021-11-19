@@ -14,23 +14,23 @@ const connection = mysql.createConnection({
   database: "node20_mysql"
 });
 
-// User CRUD
+// Community CRUD
 
 let id = 0;
 
-const user = [{ name: "El Piedra de Añaza", id: 1 }];
+const communities = [{ name: "Los Alisios", id: 1 }];
 
 id++; // We will change into AUTOINCREMENT at Database
 
 // GET
 
-app.get("/users", (req, res) => {
-  const sql = "SELECT * FROM users";
+app.get("/communities/", (req, res) => {
+  const sql = "SELECT * FROM communities";
 
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
-      res.json(`This are the users of iHood: ${user}`);
+      res.json(`This are the communities of iHood: ${communities}`);
     } else {
       res.send("Not result");
     }
@@ -39,23 +39,23 @@ app.get("/users", (req, res) => {
 
 // POST
 
-app.post("/users", (req, res) => {
-  const userName = { name: req.body.name };
+app.post("/communities", (req, res) => {
+  const communitieName = { name: req.body.name };
 
-  const sql = `INSERT INTO user SET name = '${userName}', id = '${id}'`;
+  const sql = `INSERT INTO communitie SET name = '${communitieName}', id = '${id}'`;
 
-  connection.query(sql, userName, error => {
+  connection.query(sql, communitieName, error => {
     if (error) throw error;
-    res.send("user created!");
+    res.send("communitie created!");
   });
 });
 
 // PUT
 
-app.put("/users/:id", (req, res) => {
+app.put("/communities/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const sql = `UPDATE users SET name = '${name}' WHERE id = ${id}`;
+  const sql = `UPDATE communities SET name = '${name}' WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
@@ -65,13 +65,13 @@ app.put("/users/:id", (req, res) => {
 
 // DELETE
 
-app.delete("/users/:id", (req, res) => {
+app.delete("/communities/:id", (req, res) => {
   const { id } = req.params;
-  const sql = `DELETE FROM users WHERE id = ${id}`;
+  const sql = `DELETE FROM communities WHERE id = ${id}`;
 
   connection.query(sql, error => {
     if (error) throw error;
-    res.send("user deleted!");
+    res.send("communitie deleted!");
   });
 });
 

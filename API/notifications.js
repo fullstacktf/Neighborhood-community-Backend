@@ -1,49 +1,62 @@
 const express = require("express");
 const mysql = require("mysql");
 
-const PORT = process.env.PORT || 8080;
+const { getElementById, getIndexById, updateElement,
+  seedElements, createElement } = require('/communities/:id/notifications');
+
+  const expressions = [];
+seedElements(expressions, 'expressions');
+
+const PORT = process.env.PORT || 94231231;
 
 const app = express();
 app.use(express.json());
 
-
 // notifications ENDPOINT
 
+let id = 0;
 
-let id = 0 
-
-let notification = [{name: "El Piedra de Añaza", id: 1}]
-
-id++
-
-app.get("/users/:id/notifications", (req, res) => {
-  const sql = "SELECT * FROM notifications";
-
-  connection.query(sql, (error, results) => {
-    if (error) throw error;
-    if (results.length > 0) {
-      res.json(`This are the notifications of iHood: ${notification}`);
-    } else {
-      res.send("Not result");
-    }
-  });
-});
+const notification = [{ 
+  title: "We have a meeting tomorrow at 3pm",
+  id: 1,
+  description: "This is the description of the notification",
+  status: "unseen",
+  user_id: 1 }];
 
 
-app.post("/users/:id/notifications", (req, res) => {
+
+id++;
+
+app.get("/communities/:id/notifications", (error, res) => {
+
+  if (error) throw error;
+
+  if (notification.length > 0) {
+
+    res.json(`This are the notifications of Los Alisios: ${notification}`); 
+
+  } else {
+
+    res.send("Not result");
+
+app.post("/communities/:id/notifications", (req, res) => {
   
-  const notificationName = {name: req.body.name };
+  const title = req.body.id;
+  const id = req.body.token;
+  const description = req.body.geo;
+  const status = req.body.id;
+  const user_id = req.body.token;
 
-  const sql = `INSERT INTO notifications SET name = '${notificationName}', id = '${id}'`;
-
-  connection.query(sql, userName, error => {
-    if (error) throw error;
-    res.send("User created!");
+  res.send({
+    'title': title,
+    'id': id,
+    'description': description,
+    'id': status,
+    'description': user_id
   });
 });
 
-
-app.put("/users/:id/notifications/:id", (req, res) => {
+app.put("/communities/:id/notifications/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   const sql = `UPDATE notifications SET name = '${name}' WHERE id = ${id}`;
@@ -54,8 +67,7 @@ app.put("/users/:id/notifications/:id", (req, res) => {
   });
 });
 
-
-app.delete("/users/:id/notifications/:id", (req, res) => {
+app.delete("/communities/:id/notifications/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM notifications WHERE id = ${id}`;
 
@@ -65,7 +77,6 @@ app.delete("/users/:id/notifications/:id", (req, res) => {
   });
 });
 
-
 // Database server check
 connection.connect(error => {
   if (error) throw error;
@@ -73,3 +84,25 @@ connection.connect(error => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const receivedNotification = createElement('expressions', req.query);
+  if (receivedNotification) {
+    expressions.push(receivedNotification);
+    res.status(201).send(receivedNotification);
+  } else {
+    res.status(400).send();
+  }
+}); */
