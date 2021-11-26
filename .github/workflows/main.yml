@@ -1,4 +1,4 @@
-name: ihoodfront
+name: CI CD backend
 
 on:
   push:
