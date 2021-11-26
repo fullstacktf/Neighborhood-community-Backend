@@ -35,9 +35,6 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v2
           
-      - name: Get tag name
-        uses: ihood/get-tag@v2
-          
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
