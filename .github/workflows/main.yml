@@ -9,7 +9,7 @@ on:
 jobs:
   build:
   
-    runs-on: debian-11
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout files
@@ -27,7 +27,7 @@ jobs:
   deploy: 
     needs: build
       
-    runs-on: debian-11
+    runs-on: ubuntu-latest
       
     steps:
       - name: Checkout files
